@@ -460,8 +460,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2009751536815702791, guid: 346521effe1235c40b52dcf37db7c8bb, type: 3}
+      propertyPath: vitesse
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2009751536815702791, guid: 346521effe1235c40b52dcf37db7c8bb, type: 3}
       propertyPath: meilleurTauxVirage
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2009751536815702791, guid: 346521effe1235c40b52dcf37db7c8bb, type: 3}
       propertyPath: vitesseMeilleureTauxVirage
