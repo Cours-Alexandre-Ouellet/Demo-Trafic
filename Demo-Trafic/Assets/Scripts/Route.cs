@@ -13,12 +13,12 @@ public enum Orientation
 /// </summary>
 public class Route : MonoBehaviour
 {
-    // Création des routes;
+    [Header("Création des routes")]
     public GameObject prototypeRoute;       // Modèle de la route
     public GameObject[] segmentsRoute;      // Liste des segments créés 
     public float tailleSegment = 3f;        // Taille des segments de route
 
-    // Coordonnées du chemin
+    [Header("Coordonnées du chemin")]
     public Vector3 debut;                   // Coordonnées du début du chemin
     public Vector3 fin;                     // Coordonnées de la fin du chemin
     public Orientation orientation;         // Orientation donnée du chemin
@@ -68,7 +68,7 @@ public class Route : MonoBehaviour
         if(ajoutSegmentPartiel)
         {
             Vector3 positionSegment = PositionSegment(nombreSegmentsComplets);
-            Vector3 echelleSegment = fin - positionSegment;
+            Vector3 echelleSegment = fin - positionSegment + demiTailleSegment * (orientation == Orientation.AXE_X ? Vector3.right : Vector3.forward);
             echelleSegment /= tailleSegment;
 
             echelleSegment.y = 1.0f;
