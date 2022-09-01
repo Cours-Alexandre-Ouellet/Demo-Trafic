@@ -17,7 +17,7 @@ public class Voiture : MonoBehaviour
         float vitesseFrame = vitesse * Input.GetAxis("Vertical");
 
         transform.position += transform.right * vitesseFrame * Time.deltaTime;
-        transform.Rotate(Vector3.up, Input.GetAxis("Horizontal") * VitesseAngulaire(vitesse) * Time.deltaTime);
+        transform.Rotate(Vector3.up, Input.GetAxis("Horizontal") * VitesseAngulaire(vitesseFrame) * Time.deltaTime);
     }
 
     /// <summary>
@@ -27,8 +27,13 @@ public class Voiture : MonoBehaviour
     /// <returns>La vitesse angulaire selon la vitesse instantanée.</returns>
     private float VitesseAngulaire(float vitesse)
     {
+        float facteurDirection = vitesse < 0.0f ? -1.0f : 1.0f;
+        float vitesseAbsolue = vitesse * facteurDirection;
+
         // Formule qui respecte la condition vitesse = 0 => vitesseAngulaire = 0
-        return (-1.0f * meilleurTauxVirage / (vitesseMeilleureTauxVirage * vitesseMeilleureTauxVirage)) * 
-            (vitesse - vitesseMeilleureTauxVirage) * (vitesse - vitesseMeilleureTauxVirage) + meilleurTauxVirage;
+        float vitesseAngulaire = (-1.0f * meilleurTauxVirage / (vitesseMeilleureTauxVirage * vitesseMeilleureTauxVirage)) *
+                    (vitesse - vitesseMeilleureTauxVirage) * (vitesseAbsolue - vitesseMeilleureTauxVirage) + meilleurTauxVirage;
+
+        return vitesseAngulaire * facteurDirection;
     }
 }
