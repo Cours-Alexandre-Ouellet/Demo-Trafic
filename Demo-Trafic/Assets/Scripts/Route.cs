@@ -13,11 +13,16 @@ public enum Orientation
 /// </summary>
 public class Route : MonoBehaviour
 {
+    private const float ELEVATION_ROUTE = 0.01f;
+    private const float LARGEUR_LIGNE = 0.2f;
+
+    [Header("Segments route")]
     // Création des routes;
     public GameObject prototypeRoute;       // Modèle de la route
     public GameObject[] segmentsRoute;      // Liste des segments créés 
     public float tailleSegment = 3f;        // Taille des segments de route
 
+    [Header("Coordonnées chemin")]
     // Coordonnées du chemin
     public Vector3 debut;                   // Coordonnées du début du chemin
     public Vector3 fin;                     // Coordonnées de la fin du chemin
@@ -25,6 +30,10 @@ public class Route : MonoBehaviour
 
     // Variables internes
     private float demiTailleSegment;        // Moitié de la taille d'un segment
+
+    [Header("Lignes")]
+    public Material ligneDiscontinue;
+    // Composant  LineRenderer
 
     private void Awake()
     {
@@ -43,12 +52,13 @@ public class Route : MonoBehaviour
         }
 
         GenererChemin();
+        CreerLigne();
     }
 
     /// <summary>
     /// Crée tous les segments qui constitueront le chemin
     /// </summary>
-    private void GenererChemin ()
+    private void GenererChemin()
     {
         // Paramètres du chemin à créer
         float nombreSegments = (orientation == Orientation.AXE_X ? fin.x - debut.x : fin.z - debut.z) / tailleSegment;
@@ -61,7 +71,7 @@ public class Route : MonoBehaviour
         // Création des segments réguliers
         for(int i = 0; i < nombreSegmentsComplets; i++)
         {
-            CreerSegment(i, PositionSegment(i), Vector3.one);
+            CreerSegment(i, PositionSegment(i), prototypeRoute.transform.localScale);
         }
 
         // Création du segment partiel
@@ -74,12 +84,12 @@ public class Route : MonoBehaviour
             echelleSegment.y = 1.0f;
             if(orientation == Orientation.AXE_X)
             {
-                echelleSegment.z = 1.0f;
+                echelleSegment.z = prototypeRoute.transform.localScale.z;
                 positionSegment.x -= tailleSegment * (1.0f - echelleSegment.x) * 0.5f;
             }
             else
             {
-                echelleSegment.x = 1.0f;
+                echelleSegment.x = prototypeRoute.transform.localScale.x;
                 positionSegment.z -= tailleSegment * (1.0f - echelleSegment.z) * 0.5f;
             }
 
@@ -95,7 +105,7 @@ public class Route : MonoBehaviour
     /// <returns>La position du segment.</returns>
     private Vector3 PositionSegment(int indiceSegment)
     {
-        return debut + tailleSegment * indiceSegment * 
+        return debut + tailleSegment * indiceSegment *
             (orientation == Orientation.AXE_X ? Vector3.right : Vector3.forward) +
             demiTailleSegment * (orientation == Orientation.AXE_X ? Vector3.right : Vector3.forward);
     }
@@ -112,5 +122,27 @@ public class Route : MonoBehaviour
         segmentRoute.transform.position = position;
         segmentRoute.transform.localScale = echelle;
         segmentsRoute[indiceSegment] = segmentRoute;
-    }   
+    }
+
+    private void CreerLigne()
+    {
+        GameObject ligneCentrale = new GameObject("Ligne discontinue");
+        ligneCentrale.transform.SetParent(transform);
+        ligneCentrale.transform.Rotate(Vector3.right, 90f);
+
+        LineRenderer ligne = ligneCentrale.AddComponent<LineRenderer>();
+
+        ligne.SetPositions(new Vector3[2]
+        {
+            debut + ELEVATION_ROUTE * Vector3.up,
+            fin + ELEVATION_ROUTE * Vector3.up
+        });
+        ligne.material = ligneDiscontinue;
+        ligne.startWidth = LARGEUR_LIGNE;
+        ligne.endWidth = LARGEUR_LIGNE;
+        ligne.alignment = LineAlignment.TransformZ;
+        ligne.textureMode = LineTextureMode.Tile;
+    }
+
+
 }
