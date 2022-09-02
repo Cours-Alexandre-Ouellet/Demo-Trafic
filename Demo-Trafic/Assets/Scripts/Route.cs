@@ -9,27 +9,26 @@ public enum Orientation
 }
 
 /// <summary>
-/// Gère la création d'une route
+/// Gï¿½re la crï¿½ation d'une route
 /// </summary>
 public class Route : MonoBehaviour
 {
     private const float ELEVATION_ROUTE = 0.01f;
     private const float LARGEUR_LIGNE = 0.2f;
 
-    [Header("Segments route")]
-    // Création des routes;
-    public GameObject prototypeRoute;       // Modèle de la route
-    public GameObject[] segmentsRoute;      // Liste des segments créés 
+    [Header("Crï¿½ation des routes")]
+    public GameObject prototypeRoute;       // Modï¿½le de la route
+    public GameObject[] segmentsRoute;      // Liste des segments crï¿½ï¿½s 
     public float tailleSegment = 3f;        // Taille des segments de route
 
-    [Header("Coordonnées chemin")]
-    // Coordonnées du chemin
-    public Vector3 debut;                   // Coordonnées du début du chemin
-    public Vector3 fin;                     // Coordonnées de la fin du chemin
-    public Orientation orientation;         // Orientation donnée du chemin
+
+    [Header("Coordonnï¿½es du chemin")]
+    public Vector3 debut;                   // Coordonnï¿½es du dï¿½but du chemin
+    public Vector3 fin;                     // Coordonnï¿½es de la fin du chemin
+    public Orientation orientation;         // Orientation donnï¿½e du chemin
 
     // Variables internes
-    private float demiTailleSegment;        // Moitié de la taille d'un segment
+    private float demiTailleSegment;        // Moitiï¿½ de la taille d'un segment
 
     [Header("Lignes")]
     public Material ligneDiscontinue;
@@ -56,11 +55,11 @@ public class Route : MonoBehaviour
     }
 
     /// <summary>
-    /// Crée tous les segments qui constitueront le chemin
+    /// Crï¿½e tous les segments qui constitueront le chemin
     /// </summary>
     private void GenererChemin()
     {
-        // Paramètres du chemin à créer
+        // Paramï¿½tres du chemin ï¿½ crï¿½er
         float nombreSegments = (orientation == Orientation.AXE_X ? fin.x - debut.x : fin.z - debut.z) / tailleSegment;
         int nombreSegmentsComplets = Mathf.FloorToInt(nombreSegments);
         bool ajoutSegmentPartiel = !Mathf.Approximately(nombreSegments, nombreSegmentsComplets);
@@ -68,17 +67,17 @@ public class Route : MonoBehaviour
 
         segmentsRoute = new GameObject[nombreSegmentsTotal];
 
-        // Création des segments réguliers
+        // Crï¿½ation des segments rï¿½guliers
         for(int i = 0; i < nombreSegmentsComplets; i++)
         {
             CreerSegment(i, PositionSegment(i), prototypeRoute.transform.localScale);
         }
 
-        // Création du segment partiel
+        // Crï¿½ation du segment partiel
         if(ajoutSegmentPartiel)
         {
             Vector3 positionSegment = PositionSegment(nombreSegmentsComplets);
-            Vector3 echelleSegment = fin - positionSegment;
+            Vector3 echelleSegment = fin - positionSegment + demiTailleSegment * (orientation == Orientation.AXE_X ? Vector3.right : Vector3.forward);
             echelleSegment /= tailleSegment;
 
             echelleSegment.y = 1.0f;
@@ -99,9 +98,9 @@ public class Route : MonoBehaviour
     }
 
     /// <summary>
-    /// Détermine la position de départ du segment.
+    /// Dï¿½termine la position de dï¿½part du segment.
     /// </summary>
-    /// <param name="indiceSegment">Le numéro du segment pour lequel obtenir la position.</param>
+    /// <param name="indiceSegment">Le numï¿½ro du segment pour lequel obtenir la position.</param>
     /// <returns>La position du segment.</returns>
     private Vector3 PositionSegment(int indiceSegment)
     {
@@ -111,11 +110,11 @@ public class Route : MonoBehaviour
     }
 
     /// <summary>
-    /// Crée un nouveau segment et l'insère dans le tableau des références de segments.
+    /// Crï¿½e un nouveau segment et l'insï¿½re dans le tableau des rï¿½fï¿½rences de segments.
     /// </summary>
-    /// <param name="indiceSegment">L'indice du segment à créer.</param>
-    /// <param name="position">La position du segment créé.</param>
-    /// <param name="echelle">Le facteur de mise à l'échelle du segment créé.</param>
+    /// <param name="indiceSegment">L'indice du segment ï¿½ crï¿½er.</param>
+    /// <param name="position">La position du segment crï¿½ï¿½.</param>
+    /// <param name="echelle">Le facteur de mise ï¿½ l'ï¿½chelle du segment crï¿½ï¿½.</param>
     private void CreerSegment(int indiceSegment, Vector3 position, Vector3 echelle)
     {
         GameObject segmentRoute = Instantiate(prototypeRoute, transform);
