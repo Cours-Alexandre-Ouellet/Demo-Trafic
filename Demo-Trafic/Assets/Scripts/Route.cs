@@ -9,7 +9,7 @@ public enum Orientation
 }
 
 /// <summary>
-/// G�re la cr�ation d'une route
+/// Gère la création d'une route
 /// </summary>
 public class Route : MonoBehaviour
 {
@@ -32,6 +32,7 @@ public class Route : MonoBehaviour
 
     [Header("Lignes")]
     public Material ligneDiscontinue;
+    public Material ligneContinue;
     // Composant  LineRenderer
 
     private void Awake()
@@ -51,7 +52,11 @@ public class Route : MonoBehaviour
         }
 
         GenererChemin();
-        CreerLigne();
+        CreerLigne("Ligne discontinue", Vector3.zero, ligneDiscontinue);
+
+        Vector3 decalageLigneCote = (demiTailleSegment - 2f * LARGEUR_LIGNE) * (orientation == Orientation.AXE_X ? Vector3.forward : Vector3.right);
+        CreerLigne("Ligne continue droite", decalageLigneCote, ligneContinue);
+        CreerLigne("Ligne continue droite", -1.0f * decalageLigneCote, ligneContinue);
     }
 
     /// <summary>
@@ -123,9 +128,9 @@ public class Route : MonoBehaviour
         segmentsRoute[indiceSegment] = segmentRoute;
     }
 
-    private void CreerLigne()
+    private void CreerLigne(string nomObjet, Vector3 decalage, Material materiel)
     {
-        GameObject ligneCentrale = new GameObject("Ligne discontinue");
+        GameObject ligneCentrale = new GameObject(nomObjet);
         ligneCentrale.transform.SetParent(transform);
         ligneCentrale.transform.Rotate(Vector3.right, 90f);
 
@@ -133,10 +138,10 @@ public class Route : MonoBehaviour
 
         ligne.SetPositions(new Vector3[2]
         {
-            debut + ELEVATION_ROUTE * Vector3.up,
-            fin + ELEVATION_ROUTE * Vector3.up
+            debut + decalage + ELEVATION_ROUTE * Vector3.up,
+            fin + decalage + ELEVATION_ROUTE * Vector3.up
         });
-        ligne.material = ligneDiscontinue;
+        ligne.material = materiel;
         ligne.startWidth = LARGEUR_LIGNE;
         ligne.endWidth = LARGEUR_LIGNE;
         ligne.alignment = LineAlignment.TransformZ;
