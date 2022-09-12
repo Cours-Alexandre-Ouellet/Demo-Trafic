@@ -14,7 +14,7 @@ public class VoitureAutomatique : Voiture
     private Vector3 direction;                      // Vecteur de direction normalisé
     private float distanceRestante;                 // Distance restant à parcourir
 
-    private void Start()
+    protected void Start()
     {
         // Assigne la destination souhaitée
         SetDestination(destination);
@@ -23,11 +23,16 @@ public class VoitureAutomatique : Voiture
     // Update is called once per frame
     private void Update()
     {
+        Avancer();
+    }
+
+    protected void Avancer()
+    {
         // Distance parcourue durant le frame
         float vitesseFrame = vitesse * Time.deltaTime;
 
         // S'il reste de la distance à pacourir
-        if(distanceRestante > DELTA_DISTANCE)
+        if(distanceRestante > DELTA_DISTANCE && PeutAvancer())
         {
             Vector3 deplacement = direction * vitesseFrame;
             float distanceParcourue = deplacement.magnitude;
@@ -44,8 +49,11 @@ public class VoitureAutomatique : Voiture
                 distanceRestante -= distanceParcourue;
             }
         }
+    }
 
-        
+    protected virtual bool PeutAvancer()
+    {
+        return true;
     }
 
     /// <summary>

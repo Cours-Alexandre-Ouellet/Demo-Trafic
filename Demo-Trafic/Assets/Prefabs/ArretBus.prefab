@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5195266151541077369}
   - component: {fileID: 2268542144901586697}
+  - component: {fileID: 2121777217158091408}
+  - component: {fileID: 5932423000436374573}
   m_Layer: 0
   m_Name: ZoneArret
-  m_TagString: Untagged
+  m_TagString: ArretBus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,6 +47,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 3}
   m_Center: {x: -1.5, y: 0, z: 2}
+--- !u!114 &2121777217158091408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5465700518636760950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d4df9d6271c274eae5c9b9c06f0f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5932423000436374573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5465700518636760950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d4df9d6271c274eae5c9b9c06f0f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8081209102296402064
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +85,7 @@ GameObject:
   - component: {fileID: 7720094366685586062}
   m_Layer: 0
   m_Name: ArretBus
-  m_TagString: Untagged
+  m_TagString: ArretBus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
