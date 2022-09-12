@@ -83,18 +83,19 @@ public class Route : MonoBehaviour
         {
             Vector3 positionSegment = PositionSegment(nombreSegmentsComplets);
             Vector3 echelleSegment = fin - positionSegment + demiTailleSegment * (orientation == Orientation.AXE_X ? Vector3.right : Vector3.forward);
+            echelleSegment.Scale(prototypeRoute.transform.localScale);
             echelleSegment /= tailleSegment;
 
             echelleSegment.y = 1.0f;
             if(orientation == Orientation.AXE_X)
             {
                 echelleSegment.z = prototypeRoute.transform.localScale.z;
-                positionSegment.x -= tailleSegment * (1.0f - echelleSegment.x) * 0.5f;
+                positionSegment.x -= demiTailleSegment * (prototypeRoute.transform.localScale.x - echelleSegment.x) * 0.5f;
             }
             else
             {
                 echelleSegment.x = prototypeRoute.transform.localScale.x;
-                positionSegment.z -= tailleSegment * (1.0f - echelleSegment.z) * 0.5f;
+                positionSegment.z -= demiTailleSegment * (prototypeRoute.transform.localScale.z - echelleSegment.z) * 0.5f;
             }
 
             CreerSegment(nombreSegmentsComplets, positionSegment, echelleSegment);
