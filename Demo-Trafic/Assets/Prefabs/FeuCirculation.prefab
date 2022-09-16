@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -162566187826104664, guid: 7e7be7d47e7a7d4459a31efb606aad72, type: 3}
+  - {fileID: 2100000, guid: 76fce19cc271f1047b6c7b8e002f59b5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -227,7 +227,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2596516882210123700, guid: 7e7be7d47e7a7d4459a31efb606aad72, type: 3}
+  - {fileID: 2100000, guid: e154232ca2464f14a9b882e33e9b471c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -426,6 +426,7 @@ GameObject:
   - component: {fileID: 5485644031976042807}
   - component: {fileID: 8903396267118526098}
   - component: {fileID: 6659628621729335896}
+  - component: {fileID: 265586858}
   m_Layer: 0
   m_Name: FeuCirculation
   m_TagString: Untagged
@@ -505,6 +506,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &265586858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5146273529462533005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d64a84b5f148ce34d889c6125718d339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dureesFeux:
+  - 3
+  - 2
+  - 8
+  intensite: 8
+  lumieres:
+  - {fileID: 611594114526968920}
+  - {fileID: 7432844935983780295}
+  - {fileID: 3617036711147049661}
 --- !u!1 &7078056271795558521
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +671,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -9144820260070260840, guid: 7e7be7d47e7a7d4459a31efb606aad72, type: 3}
+  - {fileID: 2100000, guid: a99ae1b6b988c71418c0328ef3b807de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

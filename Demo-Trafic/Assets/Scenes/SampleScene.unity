@@ -397,7 +397,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1674397918
 PrefabInstance:
@@ -410,9 +410,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArretBus (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8081209102296402064, guid: d1248b5eea236504181f0ced865bbbe1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8894020408214786602, guid: d1248b5eea236504181f0ced865bbbe1, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8894020408214786602, guid: d1248b5eea236504181f0ced865bbbe1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -538,7 +542,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1965859196
 BoxCollider:
@@ -603,65 +607,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &4976031445372072
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1460949485366572812, guid: 5da02d3df6024454a892cbb65d5e0dc4, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1460949485366572812, guid: 5da02d3df6024454a892cbb65d5e0dc4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1460949485366572812, guid: 5da02d3df6024454a892cbb65d5e0dc4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 24.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1460949485366572812, guid: 5da02d3df6024454a892cbb65d5e0dc4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1460949485366572812, guid: 5da02d3df6024454a892cbb65d5e0dc4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1460949485366572812, guid: 5da02d3df6024454a892cbb65d5e0dc4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1460949485366572812, guid: 5da02d3df6024454a892cbb65d5e0dc4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1460949485366572812, guid: 5da02d3df6024454a892cbb65d5e0dc4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1460949485366572812, guid: 5da02d3df6024454a892cbb65d5e0dc4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1460949485366572812, guid: 5da02d3df6024454a892cbb65d5e0dc4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1460949485366572812, guid: 5da02d3df6024454a892cbb65d5e0dc4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2237591364418153910, guid: 5da02d3df6024454a892cbb65d5e0dc4, type: 3}
-      propertyPath: m_Name
-      value: Panneau Arret
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5da02d3df6024454a892cbb65d5e0dc4, type: 3}
 --- !u!4 &887600491486114987 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4398224975546630204, guid: 475b03e1577dc6445b1efaedf15b5119, type: 3}
@@ -678,9 +625,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArretBus
       objectReference: {fileID: 0}
+    - target: {fileID: 8081209102296402064, guid: d1248b5eea236504181f0ced865bbbe1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8894020408214786602, guid: d1248b5eea236504181f0ced865bbbe1, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8894020408214786602, guid: d1248b5eea236504181f0ced865bbbe1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -761,11 +712,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3909813747522542214, guid: 475b03e1577dc6445b1efaedf15b5119, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4398224975546630204, guid: 475b03e1577dc6445b1efaedf15b5119, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4398224975546630204, guid: 475b03e1577dc6445b1efaedf15b5119, type: 3}
       propertyPath: m_LocalPosition.x
@@ -850,7 +801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5462844122597557047, guid: 346521effe1235c40b52dcf37db7c8bb, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5462844122597557047, guid: 346521effe1235c40b52dcf37db7c8bb, type: 3}
       propertyPath: m_LocalPosition.x
