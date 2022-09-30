@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,9 @@ public class GenerateurVehicule : MonoBehaviour
 
     private float tempsDepuisDerniereGeneration;        // Nombre de frames depuis la dernière génération
 
+    public delegate void EvenementCreation(VoitureAutomatique voiture);
+    public event Action<VoitureAutomatique> CreerVehicule;
+
     private void Awake()
     {
         tempsDepuisDerniereGeneration = 0;
@@ -35,7 +39,7 @@ public class GenerateurVehicule : MonoBehaviour
     {
         if(tempsDepuisDerniereGeneration > tempsAttente)
         {
-            if(Random.value < chanceGeneration)
+            if(UnityEngine.Random.value < chanceGeneration)
             {
                 GenererVehicule();
                 tempsDepuisDerniereGeneration = 0;
@@ -46,21 +50,16 @@ public class GenerateurVehicule : MonoBehaviour
 
     private void GenererVehicule()
     {
-        VoitureAutomatique protoypeChoisi = prototypes[Random.Range(0, prototypes.Length)];
-        Chemin cheminChoisi = chemins[Random.Range(0, chemins.Length)];
+        VoitureAutomatique protoypeChoisi = prototypes[UnityEngine.Random.Range(0, prototypes.Length)];
+        Chemin cheminChoisi = chemins[UnityEngine.Random.Range(0, chemins.Length)];
 
         if(PeutGenerer(protoypeChoisi.GetComponent<MeshFilter>().sharedMesh.bounds.extents, cheminChoisi.Depart, 
             (cheminChoisi.Arrivee - cheminChoisi.Depart).normalized))
-        {
-            compteurVehicules.text = (++nombreVehiculesCrees).ToString(); 
-            
+        {            
             VoitureAutomatique generee = Instantiate(protoypeChoisi, transform);
             generee.AffecterChemin(cheminChoisi);
 
-            if(generee.GetType() == typeof(Autobus))
-            {
-                compteurAutobus.text = (++nombreAutobusCrees).ToString();
-            }
+            CreerVehicule?.Invoke(generee);
         }
     }
 

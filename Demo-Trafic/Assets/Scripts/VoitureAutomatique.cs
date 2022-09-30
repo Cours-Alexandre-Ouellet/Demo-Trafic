@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 /// <summary>
 /// Voiture qui déplace automatiquement vers une destination.
@@ -15,6 +16,8 @@ public class VoitureAutomatique : Voiture
     public Vector3 destination;                     // La destination
     private Vector3 direction;                      // Vecteur de direction normalisé
     private float distanceRestante;                 // Distance restant à parcourir
+
+    public event Action<VoitureAutomatique> DestructionVehicule;
 
     protected void Start()
     {
@@ -44,6 +47,8 @@ public class VoitureAutomatique : Voiture
             {
                 transform.position = destination;
                 distanceRestante = 0.0f;
+
+                DestructionVehicule?.Invoke(this);
                 Destroy(gameObject);
             }
             else            // Avancement normal
