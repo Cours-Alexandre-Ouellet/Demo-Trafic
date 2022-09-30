@@ -39,11 +39,6 @@ public class Autobus : VoitureAutomatique
         return !zoneArretDetectee && base.PeutAvancer();
     }
 
-    private void OnDrawGizmos()
-    {
-        base.OnDrawGizmos();
-    }
-
     public IEnumerator DelaiArret()
     {
         float tempsEcoule = 0f;

@@ -56,24 +56,13 @@ public class VoitureAutomatique : Voiture
 
     protected virtual bool PeutAvancer()
     {
-        const float ZONE_VERIF = 0.5f;
+        const float ZONE_VERIF = 1.5f;
         Vector3 source = transform.position + transform.right * (GetComponent<MeshFilter>().mesh.bounds.extents.x + ZONE_VERIF);
         source.y = 0.5f;
         Vector3 etendue = GetComponent<MeshFilter>().mesh.bounds.extents;
         etendue.x = ZONE_VERIF * 0.33f;
 
-        ext = etendue;
-        src = source;
-
         return !Physics.CheckBox(source, etendue, transform.rotation, LayerMask.GetMask("Voiture"));
-    }
-
-    private Vector3 ext, src;
-    protected void OnDrawGizmos()
-    {
-        Gizmos.matrix = Matrix4x4.TRS(src, transform.rotation, Vector3.one);
-        Gizmos.DrawWireCube(Vector3.zero, ext * 2f);
-        Gizmos.matrix = Matrix4x4.identity;
     }
 
     /// <summary>

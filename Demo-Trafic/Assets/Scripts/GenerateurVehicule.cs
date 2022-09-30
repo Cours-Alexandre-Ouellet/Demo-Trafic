@@ -1,9 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GenerateurVehicule : MonoBehaviour
 {
+    [Header("Affichage")]
+    public TextMeshProUGUI compteurVehicules;
+    public TextMeshProUGUI compteurAutobus;
+    private int nombreVehiculesCrees;
+    private int nombreAutobusCrees;
+
+    [Header("Vehicule")]
+
     public VoitureAutomatique[] prototypes;
 
     [Header("Chemin")]
@@ -18,6 +27,8 @@ public class GenerateurVehicule : MonoBehaviour
     private void Awake()
     {
         tempsDepuisDerniereGeneration = 0;
+        nombreVehiculesCrees = 0;
+        nombreAutobusCrees = 0;
     }
 
     private void Update()
@@ -41,29 +52,22 @@ public class GenerateurVehicule : MonoBehaviour
         if(PeutGenerer(protoypeChoisi.GetComponent<MeshFilter>().sharedMesh.bounds.extents, cheminChoisi.Depart, 
             (cheminChoisi.Arrivee - cheminChoisi.Depart).normalized))
         {
+            compteurVehicules.text = (++nombreVehiculesCrees).ToString(); 
+            
             VoitureAutomatique generee = Instantiate(protoypeChoisi, transform);
             generee.AffecterChemin(cheminChoisi);
+
+            if(generee.GetType() == typeof(Autobus))
+            {
+                compteurAutobus.text = (++nombreAutobusCrees).ToString();
+            }
         }
     }
 
     private bool PeutGenerer(Vector3 extendsLibre, Vector3 position, Vector3 direction)
     {
-        pos = position + Vector3.up * (extendsLibre.y + 0.1f);
-        ext = extendsLibre;
-        angle = Quaternion.Euler(0f, Vector3.SignedAngle(Vector3.right, direction, Vector3.up), 0f);
-
         return !Physics.CheckBox(position + Vector3.up * (extendsLibre.y + 0.1f), extendsLibre, 
             Quaternion.Euler(0f, Vector3.SignedAngle(Vector3.right, direction, Vector3.up), 0f),
             LayerMask.GetMask("Voiture"));
-    }
-
-    private Vector3 ext, pos;
-    private Quaternion angle;
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.matrix = Matrix4x4.TRS(pos, angle, Vector3.one);
-        Gizmos.DrawWireCube(Vector3.zero, ext * 2f);
-        Gizmos.matrix = Matrix4x4.identity;
     }
 }
