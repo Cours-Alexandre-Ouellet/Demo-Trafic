@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3923036093030978466}
   - component: {fileID: 1777172188407040376}
   - component: {fileID: 2496213702978444304}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Roue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6840341279546157586}
   - component: {fileID: 8082006574604803660}
   - component: {fileID: 1125786466621564161}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Roue.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,10 +179,10 @@ GameObject:
   - component: {fileID: 5462844122597557047}
   - component: {fileID: 8962216432189115538}
   - component: {fileID: 6594614649849509976}
-  - component: {fileID: 2009751536815702791}
   - component: {fileID: 7003282068341217898}
   - component: {fileID: 270214629603925806}
-  m_Layer: 0
+  - component: {fileID: -1439729858995602443}
+  m_Layer: 6
   m_Name: Voiture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,21 +267,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2009751536815702791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4648906023089887629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa3d2d1a860b42e4c9501cc33bd0a888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vitesse: 3
-  vitesseMeilleureTauxVirage: 2
-  meilleurTauxVirage: 30
 --- !u!54 &7003282068341217898
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -312,6 +297,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1108514412185210885, guid: b79e52ca73fe82f4c9effb7dd20b37cf, type: 3}
+--- !u!114 &-1439729858995602443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4648906023089887629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a5494f003077249b59b7ca3fdb25ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vitesse: 3
+  vitesseMeilleureTauxVirage: 2
+  meilleurTauxVirage: 30
+  destination: {x: 0, y: 0, z: 0}
 --- !u!1 &6070826625991415077
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +324,7 @@ GameObject:
   - component: {fileID: 433430833679259628}
   - component: {fileID: 8007450637296910955}
   - component: {fileID: 6255154508247115092}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Roue.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +408,7 @@ GameObject:
   - component: {fileID: 2522588822665380441}
   - component: {fileID: 2330286633809911656}
   - component: {fileID: 4495017809863472341}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Roue.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}

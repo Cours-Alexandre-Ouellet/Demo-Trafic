@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7744020807305419367}
   - component: {fileID: 2712007438323017245}
   - component: {fileID: 5569297396155640590}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Roue-AvD.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2978431440915600303, guid: f9d6bb393d0a3534c8c6fc30937288f3, type: 3}
 --- !u!1 &2916186710011901418
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 7400780303152137650}
   - component: {fileID: 6320429305247864014}
   - component: {fileID: 2234897684451034250}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Roue-ArD.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1137250420347321989, guid: f9d6bb393d0a3534c8c6fc30937288f3, type: 3}
 --- !u!1 &2985204367758463952
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 2697112148375108952}
   - component: {fileID: 2461611206104227918}
   - component: {fileID: 6514994899284507498}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Roue-ArG.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1778168362954959296, guid: f9d6bb393d0a3534c8c6fc30937288f3, type: 3}
 --- !u!1 &3909813747522542214
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 9207451536249814094}
   - component: {fileID: 8238411277002732507}
   - component: {fileID: -6952314211641291950}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Autobus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3909813747522542214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.8, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -421,7 +421,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7473552367182331016, guid: f9d6bb393d0a3534c8c6fc30937288f3, type: 3}
 --- !u!114 &-6952314211641291950
@@ -436,6 +436,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1835e0c2703a1374c80a4a7e90b263cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vitesse: 3
+  vitesseMeilleureTauxVirage: 2
+  meilleurTauxVirage: 30
+  destination: {x: 0, y: 0, z: 0}
+  zoneArretDetectee: 0
+  tempsArret: 3
+  dernierArret: {fileID: 0}
 --- !u!1 &5468597066010444366
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,7 +455,7 @@ GameObject:
   - component: {fileID: 1701116601309624389}
   - component: {fileID: 581528362505321322}
   - component: {fileID: 7488104384229109311}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Roue-AvG.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,7 +539,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2898238967278229821, guid: f9d6bb393d0a3534c8c6fc30937288f3, type: 3}
 --- !u!1 &5654744867477770137
@@ -547,7 +554,7 @@ GameObject:
   - component: {fileID: 2720058916173099304}
   - component: {fileID: 6807756257262609641}
   - component: {fileID: 815668555494978066}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mirroir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -631,6 +638,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -9176866518305431294, guid: f9d6bb393d0a3534c8c6fc30937288f3, type: 3}

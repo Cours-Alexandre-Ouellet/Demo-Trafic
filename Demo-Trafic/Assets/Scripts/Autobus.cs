@@ -36,7 +36,12 @@ public class Autobus : VoitureAutomatique
 
     protected override bool PeutAvancer()
     {
-        return !zoneArretDetectee;
+        return !zoneArretDetectee && base.PeutAvancer();
+    }
+
+    private void OnDrawGizmos()
+    {
+        base.OnDrawGizmos();
     }
 
     public IEnumerator DelaiArret()
