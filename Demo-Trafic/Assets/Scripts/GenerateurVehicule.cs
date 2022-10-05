@@ -12,9 +12,7 @@ public class GenerateurVehicule : MonoBehaviour
     private int nombreVehiculesCrees;
     private int nombreAutobusCrees;
 
-    [Header("Vehicule")]
-
-    public VoitureAutomatique[] prototypes;
+    public List<VoitureAutomatique> Prototypes { get; private set; }
 
     [Header("Chemin")]
     public Chemin[] chemins;
@@ -33,6 +31,7 @@ public class GenerateurVehicule : MonoBehaviour
         tempsDepuisDerniereGeneration = 0;
         nombreVehiculesCrees = 0;
         nombreAutobusCrees = 0;
+        Prototypes = new List<VoitureAutomatique>();
     }
 
     private void Update()
@@ -48,14 +47,17 @@ public class GenerateurVehicule : MonoBehaviour
         tempsDepuisDerniereGeneration += Time.deltaTime;
     }
 
-    private void GenererVehicule()
+    public void GenererVehicule()
     {
-        VoitureAutomatique protoypeChoisi = prototypes[UnityEngine.Random.Range(0, prototypes.Length)];
+        if(Prototypes.Count == 0)
+            return;
+
+        VoitureAutomatique protoypeChoisi = Prototypes[UnityEngine.Random.Range(0, Prototypes.Count)];
         Chemin cheminChoisi = chemins[UnityEngine.Random.Range(0, chemins.Length)];
 
-        if(PeutGenerer(protoypeChoisi.GetComponent<MeshFilter>().sharedMesh.bounds.extents, cheminChoisi.Depart, 
+        if(PeutGenerer(protoypeChoisi.GetComponent<MeshFilter>().sharedMesh.bounds.extents, cheminChoisi.Depart,
             (cheminChoisi.Arrivee - cheminChoisi.Depart).normalized))
-        {            
+        {
             VoitureAutomatique generee = Instantiate(protoypeChoisi, transform);
             generee.AffecterChemin(cheminChoisi);
 
@@ -63,9 +65,22 @@ public class GenerateurVehicule : MonoBehaviour
         }
     }
 
+    public void SetChanceGeneration(float chance)
+    {
+        chanceGeneration = chance;
+    }
+
+    public void SetTempsAttente(string tempsAttente)
+    {
+        if(!float.TryParse(tempsAttente, out this.tempsAttente))
+        {
+            // Gérer mon erreur
+        }
+    }
+
     private bool PeutGenerer(Vector3 extendsLibre, Vector3 position, Vector3 direction)
     {
-        return !Physics.CheckBox(position + Vector3.up * (extendsLibre.y + 0.1f), extendsLibre, 
+        return !Physics.CheckBox(position + Vector3.up * (extendsLibre.y + 0.1f), extendsLibre,
             Quaternion.Euler(0f, Vector3.SignedAngle(Vector3.right, direction, Vector3.up), 0f),
             LayerMask.GetMask("Voiture"));
     }
