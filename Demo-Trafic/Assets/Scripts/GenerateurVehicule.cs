@@ -70,12 +70,9 @@ public class GenerateurVehicule : MonoBehaviour
         chanceGeneration = chance;
     }
 
-    public void SetTempsAttente(string tempsAttente)
+    public void SetTempsAttente(float tempsAttente)
     {
-        if(!float.TryParse(tempsAttente, out this.tempsAttente))
-        {
-            // Gérer mon erreur
-        }
+        this.tempsAttente = tempsAttente;
     }
 
     private bool PeutGenerer(Vector3 extendsLibre, Vector3 position, Vector3 direction)
