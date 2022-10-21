@@ -8,6 +8,13 @@ public class Autobus : VoitureAutomatique
     public float tempsArret = 3f;
     public ZoneArretBus dernierArret;
 
+    public override string NomType => "Autobus";
+
+    private new void Awake()
+    {
+        base.Awake();
+    }
+
     // Start is called before the first frame update
     private new void Start()
     {

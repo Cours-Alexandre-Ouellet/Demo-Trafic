@@ -19,6 +19,14 @@ public class VoitureAutomatique : Voiture
 
     public event Action<VoitureAutomatique> DestructionVehicule;
 
+    public float TempsCreation { get; private set; }
+    public virtual string NomType => "Voiture";
+
+    protected void Awake()
+    {
+        TempsCreation = Time.time;
+    }
+
     protected void Start()
     {
         // Assigne la destination souhaitée
