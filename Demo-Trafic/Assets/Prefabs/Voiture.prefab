@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3923036093030978466}
   - component: {fileID: 1777172188407040376}
   - component: {fileID: 2496213702978444304}
+  - component: {fileID: 7764558642249033182}
   m_Layer: 6
   m_Name: Roue
   m_TagString: Untagged
@@ -25,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339271974120423125}
-  m_LocalRotation: {x: 0, y: 0.70710665, z: 0, w: 0.7071069}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -1.180612, y: -0.39681914, z: 0.80889875}
   m_LocalScale: {x: 0.09999999, y: 0.34999996, z: 0.35}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5462844122597557047}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &1777172188407040376
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -84,6 +85,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &7764558642249033182
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339271974120423125}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 156ad4e9d7476164abf5547474edf302, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2665146480651613147
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,6 +116,7 @@ GameObject:
   - component: {fileID: 6840341279546157586}
   - component: {fileID: 8082006574604803660}
   - component: {fileID: 1125786466621564161}
+  - component: {fileID: 2469959784645742933}
   m_Layer: 6
   m_Name: Roue.002
   m_TagString: Untagged
@@ -168,6 +190,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &2469959784645742933
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2665146480651613147}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 156ad4e9d7476164abf5547474edf302, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4648906023089887629
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +355,7 @@ MonoBehaviour:
   vitesseMeilleureTauxVirage: 2
   meilleurTauxVirage: 30
   destination: {x: 0, y: 0, z: 0}
+  distanceRestante: 0
 --- !u!1 &6070826625991415077
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,6 +367,7 @@ GameObject:
   - component: {fileID: 433430833679259628}
   - component: {fileID: 8007450637296910955}
   - component: {fileID: 6255154508247115092}
+  - component: {fileID: 2659014934844670216}
   m_Layer: 6
   m_Name: Roue.001
   m_TagString: Untagged
@@ -397,6 +441,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &2659014934844670216
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6070826625991415077}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 156ad4e9d7476164abf5547474edf302, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8819321803238139015
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,6 +472,7 @@ GameObject:
   - component: {fileID: 2522588822665380441}
   - component: {fileID: 2330286633809911656}
   - component: {fileID: 4495017809863472341}
+  - component: {fileID: 7243830290922927260}
   m_Layer: 6
   m_Name: Roue.004
   m_TagString: Untagged
@@ -481,3 +546,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &7243830290922927260
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8819321803238139015}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 156ad4e9d7476164abf5547474edf302, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

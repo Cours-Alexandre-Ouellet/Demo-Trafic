@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
+[RequireComponent(typeof(Animator))]
 public class InformationVehicule : MonoBehaviour
 {
     public TextMeshProUGUI titreVehicule;
@@ -12,9 +13,23 @@ public class InformationVehicule : MonoBehaviour
     private VoitureAutomatique voitureAffichee;
     private Coroutine coroutineAffichage;
 
+    private Animator animator;
+
+    public static InformationVehicule Instance { get; private set; }
+
     private void Awake()
     {
+        if(Instance is null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         estOuvert = false;
+        animator = GetComponent<Animator>();
     }
 
     public void AfficherVehicule(VoitureAutomatique voiture)
@@ -64,7 +79,7 @@ public class InformationVehicule : MonoBehaviour
 
     public void Ouvrir()
     {
-        gameObject.SetActive(true);
+        animator.SetTrigger("Ouvrir");
         estOuvert = true;
     }
 
@@ -77,7 +92,7 @@ public class InformationVehicule : MonoBehaviour
             coroutineAffichage = null;
         }
 
-        gameObject.SetActive(false);
+        animator.SetTrigger("Fermer");
         estOuvert = false;
     }
 }
