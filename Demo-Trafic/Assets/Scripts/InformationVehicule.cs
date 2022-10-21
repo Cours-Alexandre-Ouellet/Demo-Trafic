@@ -4,9 +4,9 @@ using TMPro;
 
 public class InformationVehicule : MonoBehaviour
 {
-    public TextMeshPro titreVehicule;
-    public TextMeshPro tempsVie;
-    public TextMeshPro nomObjet;
+    public TextMeshProUGUI titreVehicule;
+    public TextMeshProUGUI tempsVie;
+    public TextMeshProUGUI nomObjet;
 
     private bool estOuvert;
     private VoitureAutomatique voitureAffichee;
@@ -19,6 +19,11 @@ public class InformationVehicule : MonoBehaviour
 
     public void AfficherVehicule(VoitureAutomatique voiture)
     {
+        if(!estOuvert)
+        {
+            Ouvrir();
+        }
+
         voitureAffichee = voiture;
         if(coroutineAffichage is not null)
         {
@@ -26,6 +31,8 @@ public class InformationVehicule : MonoBehaviour
         }
 
         titreVehicule.text = voiture.NomType;
+        nomObjet.text = voiture.gameObject.name;
+        
         coroutineAffichage = StartCoroutine(MettreAJourTempsVie());
         voiture.DestructionVehicule += OnVehiculeDestruction;
     }
@@ -52,7 +59,7 @@ public class InformationVehicule : MonoBehaviour
 
     private string CalculerTempsVie()
     {
-        return string.Format("{0.##}", Time.time - voitureAffichee.TempsCreation);
+        return (Time.time - voitureAffichee.TempsCreation).ToString("0.00");
     }
 
     public void Ouvrir()
