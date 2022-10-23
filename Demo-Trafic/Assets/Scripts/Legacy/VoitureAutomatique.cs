@@ -2,27 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// Voiture qui déplace automatiquement vers une destination.
 /// La voiture ne peut pas tourner.
 /// </summary>
 [RequireComponent(typeof(MeshFilter))]
-public class VoitureAutomatique : Voiture
+public class VoitureAutomatique : Voiture, IPointerClickHandler
 {
-    private const float DELTA_DISTANCE = 0.001f;     // Rayon autour de la destination pour arrêter le mouvement 
+    private const float DELTA_DISTANCE = 0.1f;     // Rayon autour de la destination pour arrêter le mouvement 
     private const float DELTA_HAUTEUR = 0.5f;
 
     public Vector3 destination;                     // La destination
     private Vector3 direction;                      // Vecteur de direction normalisé
-    private float distanceRestante;                 // Distance restant à parcourir
+    public float distanceRestante;                 // Distance restant à parcourir
 
     public event Action<VoitureAutomatique> DestructionVehicule;
+
+    private Animator[] animateursRoue;
+
+    public float TempsCreation { get; private set; }
+    public virtual string NomType => "Voiture";
+
+    protected void Awake()
+    {
+        TempsCreation = Time.time;
+    }
 
     protected void Start()
     {
         // Assigne la destination souhaitée
         SetDestination(destination);
+        animateursRoue = GetComponentsInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -31,31 +43,49 @@ public class VoitureAutomatique : Voiture
         Avancer();
     }
 
+    private void VitesseAnimationRoue(float facteur)
+    {
+        foreach(Animator animateurRoue in animateursRoue)
+        {
+            animateurRoue.SetFloat("Vitesse", facteur);
+        }
+    }
+
     protected void Avancer()
     {
         // Distance parcourue durant le frame
         float vitesseFrame = vitesse * Time.deltaTime;
 
         // S'il reste de la distance à pacourir
-        if(distanceRestante > DELTA_DISTANCE && PeutAvancer())
+        if(distanceRestante > DELTA_DISTANCE)
         {
-            Vector3 deplacement = direction * vitesseFrame;
-            float distanceParcourue = deplacement.magnitude;
-
-            // On va trop loin, alors on téléporte à destination
-            if(distanceParcourue > distanceRestante)
+            if(PeutAvancer())
             {
-                transform.position = destination;
-                distanceRestante = 0.0f;
+                Vector3 deplacement = direction * vitesseFrame;
+                VitesseAnimationRoue(vitesse / 2.55f);
+                float distanceParcourue = deplacement.magnitude;
 
-                DestructionVehicule?.Invoke(this);
-                Destroy(gameObject);
+                // On va trop loin, alors on téléporte à destination
+                if(distanceParcourue > distanceRestante)
+                {
+                    transform.position = destination;
+                    distanceRestante = 0.0f;
+                }
+                else            // Avancement normal
+                {
+                    transform.position += deplacement;
+                    distanceRestante -= distanceParcourue;
+                }
             }
-            else            // Avancement normal
+            else
             {
-                transform.position += deplacement;
-                distanceRestante -= distanceParcourue;
+                VitesseAnimationRoue(0.0f);
             }
+        }
+        else
+        {
+            DestructionVehicule?.Invoke(this);
+            Destroy(gameObject);
         }
     }
 
@@ -94,5 +124,10 @@ public class VoitureAutomatique : Voiture
         transform.Rotate(0f, Vector3.SignedAngle(transform.right, direction, Vector3.up), 0f);
 
         
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        InformationVehicule.Instance?.AfficherVehicule(this);
     }
 }
