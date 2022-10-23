@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7744020807305419367}
   - component: {fileID: 2712007438323017245}
   - component: {fileID: 5569297396155640590}
+  - component: {fileID: 1428017300782452669}
   m_Layer: 6
   m_Name: Roue-AvD.001
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058135580819975391}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.35, z: 0}
+  m_LocalPosition: {x: -4.75783, y: 0.816835, z: 1.01081}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -99,6 +100,26 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2978431440915600303, guid: f9d6bb393d0a3534c8c6fc30937288f3, type: 3}
+--- !u!95 &1428017300782452669
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058135580819975391}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 156ad4e9d7476164abf5547474edf302, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2916186710011901418
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,6 +132,7 @@ GameObject:
   - component: {fileID: 7400780303152137650}
   - component: {fileID: 6320429305247864014}
   - component: {fileID: 2234897684451034250}
+  - component: {fileID: 4483739074793007999}
   m_Layer: 6
   m_Name: Roue-ArD.001
   m_TagString: Untagged
@@ -126,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2916186710011901418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.35, z: 0}
+  m_LocalPosition: {x: 4.41, y: 0.816835, z: 1.01081}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -198,6 +220,26 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1137250420347321989, guid: f9d6bb393d0a3534c8c6fc30937288f3, type: 3}
+--- !u!95 &4483739074793007999
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2916186710011901418}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 156ad4e9d7476164abf5547474edf302, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2985204367758463952
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +252,7 @@ GameObject:
   - component: {fileID: 2697112148375108952}
   - component: {fileID: 2461611206104227918}
   - component: {fileID: 6514994899284507498}
+  - component: {fileID: 7283064219079734294}
   m_Layer: 6
   m_Name: Roue-ArG.001
   m_TagString: Untagged
@@ -225,7 +268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2985204367758463952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.35, z: 0}
+  m_LocalPosition: {x: 4.4, y: 0.816835, z: -1.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -297,6 +340,26 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1778168362954959296, guid: f9d6bb393d0a3534c8c6fc30937288f3, type: 3}
+--- !u!95 &7283064219079734294
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2985204367758463952}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 156ad4e9d7476164abf5547474edf302, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3909813747522542214
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vitesseMaximale: 5
+  rayonRoue: 0.7112
   tempsArretMinimal: 2
   tempsArretMaximal: 4
 --- !u!1 &5468597066010444366
@@ -464,6 +528,7 @@ GameObject:
   - component: {fileID: 1701116601309624389}
   - component: {fileID: 581528362505321322}
   - component: {fileID: 7488104384229109311}
+  - component: {fileID: 4179369625802990490}
   m_Layer: 6
   m_Name: Roue-AvG.001
   m_TagString: Untagged
@@ -479,7 +544,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5468597066010444366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.35, z: 0}
+  m_LocalPosition: {x: -4.75783, y: 0.816835, z: -1.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -551,6 +616,26 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2898238967278229821, guid: f9d6bb393d0a3534c8c6fc30937288f3, type: 3}
+--- !u!95 &4179369625802990490
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5468597066010444366}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 156ad4e9d7476164abf5547474edf302, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5654744867477770137
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +663,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5654744867477770137}
   m_LocalRotation: {x: 0, y: 0.5735764, z: 0, w: 0.8191521}
-  m_LocalPosition: {x: -4.837, y: 0.67, z: -0.667}
+  m_LocalPosition: {x: -5.632, y: 2.189, z: -1.466}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

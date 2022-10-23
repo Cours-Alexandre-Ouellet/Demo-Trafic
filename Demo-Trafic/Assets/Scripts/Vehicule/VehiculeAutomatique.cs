@@ -11,7 +11,11 @@ public class VehiculeAutomatique : MonoBehaviour
 
     public bool PeutAvancer { get; set; }
 
+    public float rayonRoue;
+
     public event System.Action<VehiculeAutomatique> DestructionVehicule;
+
+    private Animator[] animateursRoue;
 
     protected void Awake()
     {
@@ -19,6 +23,7 @@ public class VehiculeAutomatique : MonoBehaviour
         Suiveur = GetComponent<PathFollower>();
         Suiveur.SetForward(Vector3.right);
         PeutAvancer = true;
+        animateursRoue = GetComponentsInChildren<Animator>();
     }
 
     protected void Start()
@@ -28,6 +33,11 @@ public class VehiculeAutomatique : MonoBehaviour
 
     public void SetVitesse(float vitesse)
     {
+        foreach (Animator animateur in animateursRoue)
+        {
+            animateur.SetFloat("Vitesse", vitesse / (Mathf.PI * rayonRoue));
+        }
+
         Suiveur.Speed = vitesse;
     }
 
