@@ -1,7 +1,8 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(PathFollower))]
-public class VehiculeAutomatique : MonoBehaviour
+public class VehiculeAutomatique : MonoBehaviour, IPointerClickHandler
 {
     public PathFollower Suiveur { get; private set; }
 
@@ -17,6 +18,10 @@ public class VehiculeAutomatique : MonoBehaviour
 
     private Animator[] animateursRoue;
 
+    public virtual string NomType => "Voiture";
+
+    public float TempsCreation { get; private set; }
+
     protected void Awake()
     {
         iaVehicule = new StateMachine<VehiculeAutomatique>(this);
@@ -24,6 +29,7 @@ public class VehiculeAutomatique : MonoBehaviour
         Suiveur.SetForward(Vector3.right);
         PeutAvancer = true;
         animateursRoue = GetComponentsInChildren<Animator>();
+        TempsCreation = Time.time;
     }
 
     protected void Start()
@@ -44,5 +50,10 @@ public class VehiculeAutomatique : MonoBehaviour
     public void AffecterChemin(Path chemin)
     {
         Suiveur.SetPath(chemin);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        InformationVehicule.Instance.AfficherVehicule(this);
     }
 }

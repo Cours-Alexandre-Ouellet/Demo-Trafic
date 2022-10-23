@@ -128,6 +128,6 @@ public class VoitureAutomatique : Voiture, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        InformationVehicule.Instance?.AfficherVehicule(this);
+        //InformationVehicule.Instance?.AfficherVehicule(this);
     }
 }

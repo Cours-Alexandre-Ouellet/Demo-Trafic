@@ -6,6 +6,8 @@ public class AutobusAutomatique : VehiculeAutomatique
     public float tempsArretMinimal;
     public float tempsArretMaximal;
 
+    public virtual string NomType => "Autobus";
+
     public void ArretEmbarquement()
     {
         StartCoroutine(Attendre(Random.Range(tempsArretMinimal, tempsArretMaximal)));

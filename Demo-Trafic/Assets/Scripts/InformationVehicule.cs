@@ -10,7 +10,7 @@ public class InformationVehicule : MonoBehaviour
     public TextMeshProUGUI nomObjet;
 
     private bool estOuvert;
-    private VoitureAutomatique voitureAffichee;
+    private VehiculeAutomatique voitureAffichee;
     private Coroutine coroutineAffichage;
 
     private Animator animator;
@@ -32,27 +32,27 @@ public class InformationVehicule : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void AfficherVehicule(VoitureAutomatique voiture)
+    public void AfficherVehicule(VehiculeAutomatique vehicule)
     {
         if(!estOuvert)
         {
             Ouvrir();
         }
 
-        voitureAffichee = voiture;
+        voitureAffichee = vehicule;
         if(coroutineAffichage is not null)
         {
             StopCoroutine(coroutineAffichage);
         }
 
-        titreVehicule.text = voiture.NomType;
-        nomObjet.text = voiture.gameObject.name;
+        titreVehicule.text = vehicule.NomType;
+        nomObjet.text = vehicule.gameObject.name;
         
         coroutineAffichage = StartCoroutine(MettreAJourTempsVie());
-        voiture.DestructionVehicule += OnVehiculeDestruction;
+        vehicule.DestructionVehicule += OnVehiculeDestruction;
     }
 
-    private void OnVehiculeDestruction(VoitureAutomatique voiture)
+    private void OnVehiculeDestruction(VehiculeAutomatique voiture)
     {
         if(coroutineAffichage is not null)
         {
