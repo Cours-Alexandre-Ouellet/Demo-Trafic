@@ -56,4 +56,21 @@ public class VehiculeAutomatique : MonoBehaviour, IPointerClickHandler
     {
         InformationVehicule.Instance.AfficherVehicule(this);
     }
+
+    public void OnDrawGizmos()
+    {
+        // Dessine la boite de vérification
+        Vector3 source = transform.position + -1.0f * transform.right * (GetComponent<MeshFilter>().sharedMesh.bounds.extents.x + 0.75f);
+        source.y = GetComponent<MeshFilter>().sharedMesh.bounds.extents.y;
+
+        Vector3 etendue = GetComponent<MeshFilter>().sharedMesh.bounds.extents;
+        etendue.x = 0.75f * 0.66f;
+
+        Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, transform.lossyScale);
+        Gizmos.DrawWireCube(source, etendue * 2);
+        Gizmos.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, Vector3.one);
+
+
+        // if (Physics.CheckBox(source, etendue, vehicule.transform.rotation, LayerMask.GetMask("Voiture")))
+    }
 }

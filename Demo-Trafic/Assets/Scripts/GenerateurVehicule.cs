@@ -6,6 +6,8 @@ using TMPro;
 
 public class GenerateurVehicule : MonoBehaviour
 {
+    public static GenerateurVehicule Instance { get; private set; }
+
     [Header("Affichage")]
     public TextMeshProUGUI compteurVehicules;
     public TextMeshProUGUI compteurAutobus;
@@ -29,6 +31,15 @@ public class GenerateurVehicule : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         tempsDepuisDerniereGeneration = 0;
         nombreVehiculesCrees = 0;
         nombreAutobusCrees = 0;

@@ -4,7 +4,7 @@ public class CommandeAvancer : AbstractCommand<VehiculeAutomatique>
 {
     private readonly bool verifierPourCollision;
 
-    private const float ZONE_VERIF = 1.5f;
+    private const float ZONE_VERIF = 0.75f;
 
     public CommandeAvancer(bool verifierPourCollision)
     {
@@ -15,13 +15,14 @@ public class CommandeAvancer : AbstractCommand<VehiculeAutomatique>
     {
         if(verifierPourCollision)
         {
-            Vector3 source = vehicule.transform.position + vehicule.transform.right * (vehicule.GetComponent<MeshFilter>().mesh.bounds.extents.x + ZONE_VERIF);
-            source.y = 0.5f;
+            Vector3 extendsVehicule = vehicule.GetComponent<MeshFilter>().sharedMesh.bounds.extents;
+            Vector3 source = vehicule.transform.position - vehicule.transform.right * (extendsVehicule.x + ZONE_VERIF);
+            source.y = extendsVehicule.y;
 
-            Vector3 etendue = vehicule.GetComponent<MeshFilter>().mesh.bounds.extents;
-            etendue.x = ZONE_VERIF * 0.33f;
+            Vector3 etendue = extendsVehicule;
+            etendue.x = ZONE_VERIF * 0.66f;
 
-            if(Physics.CheckBox(source, etendue, vehicule.transform.rotation, LayerMask.GetMask("Voiture")))
+            if (Physics.CheckBox(source, etendue, vehicule.transform.rotation, LayerMask.GetMask("Voiture")))
             {
                 return;     // Ne peut pas avancer
             }

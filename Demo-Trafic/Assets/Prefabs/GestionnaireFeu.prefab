@@ -372,6 +372,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 106767623910104928}
     m_Modifications:
+    - target: {fileID: 3343042307876406253, guid: 5b14b44ae9e6d9344989486c7a203893, type: 3}
+      propertyPath: direction.z
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5146273529462533005, guid: 5b14b44ae9e6d9344989486c7a203893, type: 3}
       propertyPath: m_Name
       value: FeuCirculation (1)
@@ -466,6 +470,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 106767623910104928}
     m_Modifications:
+    - target: {fileID: 3343042307876406253, guid: 5b14b44ae9e6d9344989486c7a203893, type: 3}
+      propertyPath: direction.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3343042307876406253, guid: 5b14b44ae9e6d9344989486c7a203893, type: 3}
+      propertyPath: direction.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5146273529462533005, guid: 5b14b44ae9e6d9344989486c7a203893, type: 3}
       propertyPath: m_Name
       value: FeuCirculation
@@ -528,6 +540,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 106767623910104928}
     m_Modifications:
+    - target: {fileID: 3343042307876406253, guid: 5b14b44ae9e6d9344989486c7a203893, type: 3}
+      propertyPath: direction.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5146273529462533005, guid: 5b14b44ae9e6d9344989486c7a203893, type: 3}
       propertyPath: m_Name
       value: FeuCirculation (3)
@@ -1242,6 +1258,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 106767623910104928}
     m_Modifications:
+    - target: {fileID: 3343042307876406253, guid: 5b14b44ae9e6d9344989486c7a203893, type: 3}
+      propertyPath: direction.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5146273529462533005, guid: 5b14b44ae9e6d9344989486c7a203893, type: 3}
       propertyPath: m_Name
       value: FeuCirculation (2)

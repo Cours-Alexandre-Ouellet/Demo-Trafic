@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6434512328687778955}
   - component: {fileID: 5151184927108994870}
   - component: {fileID: 1861954359455964237}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Roue.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 1602437498348511624}
   - component: {fileID: 3446353662507108023}
   - component: {fileID: 4050814422897211054}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Roue.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 6508602936827725914}
   - component: {fileID: -474686610941566521}
   - component: {fileID: 6981119097148144066}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Voiture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 663194279806123439}
   - component: {fileID: 8539587217653319394}
   - component: {fileID: 2325181540141670906}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Roue.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 7040504143180360347}
   - component: {fileID: 6609446577774067699}
   - component: {fileID: 7004448456877258679}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Roue
   m_TagString: Untagged
   m_Icon: {fileID: 0}

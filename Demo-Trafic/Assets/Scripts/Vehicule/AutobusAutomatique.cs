@@ -6,16 +6,18 @@ public class AutobusAutomatique : VehiculeAutomatique
     public float tempsArretMinimal;
     public float tempsArretMaximal;
 
-    public virtual string NomType => "Autobus";
+    public override string NomType => "Autobus";
 
     public void ArretEmbarquement()
     {
-        StartCoroutine(Attendre(Random.Range(tempsArretMinimal, tempsArretMaximal)));
+        PeutAvancer = false;
+        StartCoroutine(TempsAttente(Random.Range(tempsArretMinimal, tempsArretMaximal)));
     }
 
-    private IEnumerator Attendre(float temps)
+    private IEnumerator TempsAttente(float tempsAttente)
     {
-        yield return new WaitForSeconds(temps);
+        yield return new WaitForSeconds(tempsAttente);
+        PeutAvancer = true;
     }
 }
 

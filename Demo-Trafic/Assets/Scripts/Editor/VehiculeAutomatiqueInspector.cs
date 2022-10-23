@@ -22,7 +22,7 @@ public class VehiculeAutomatiqueInspector : Editor
 
     public void OnSceneGUI()
     {
-        if(vehicule.Suiveur is null || vehicule.Suiveur.Path is null)
+        if (vehicule.Suiveur is null || vehicule.Suiveur.Path is null)
         {
             return;
         }
@@ -43,7 +43,7 @@ public class VehiculeAutomatiqueInspector : Editor
         Handles.color = Color.red;
         for (int i = 0; i < chemin.NumPoints; i++)
         {
-            Handles.DrawSolidDisc(chemin[i], Vector3.up, 0.2f); 
+            Handles.DrawSolidDisc(chemin[i], Vector3.up, 0.2f);
         }
     }
 }

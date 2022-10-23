@@ -7,7 +7,7 @@ public class CompteurNbAutobus : Compteur
 {
     protected override void OnVehiculeCree(VehiculeAutomatique voiture)
     {
-        if(voiture.GetType() == typeof(Autobus))
+        if(voiture.GetType() == typeof(AutobusAutomatique))
         {
             nombre++;
             AfficherNombre(nombre);
