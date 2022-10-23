@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CompteurNbVehicules : Compteur
 {
-    protected override void OnVehiculeCree(VoitureAutomatique voiture)
+    protected override void OnVehiculeCree(VehiculeAutomatique voiture)
     {
         nombre++;
         AfficherNombre(nombre);

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Toggle))]
 public class UIGestionTypeVehicule : MonoBehaviour
 {
-    public VoitureAutomatique prototype;
+    public VehiculeAutomatique prototype;
     public GenerateurVehicule generateur;
 
     private void Start()

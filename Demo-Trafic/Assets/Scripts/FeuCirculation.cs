@@ -9,6 +9,8 @@ public class FeuCirculation : MonoBehaviour
     public float intensite;
     public MeshRenderer[] lumieres;   
 
+    public bool PermetCirculation { get; private set; }
+
     public void SetEtat(int etatFeu)
     {
         foreach(MeshRenderer lumiere in lumieres)
@@ -18,5 +20,7 @@ public class FeuCirculation : MonoBehaviour
 
         lumieres[etatFeu].material.SetColor(PROPRIETE_EMISSION, 
                 lumieres[etatFeu].material.color * intensite);
+
+        PermetCirculation = etatFeu == 0;       // Le 0 représente un feu vert
     }
 }

@@ -6,11 +6,9 @@ public class ZoneArretBus : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Autobus autobus = other.GetComponent<Autobus>();
-
-        if(autobus is not null)
+        if(other.TryGetComponent(out AutobusAutomatique autobus))
         {
-            autobus.EntrerZoneArret(this);
+            autobus.ArretEmbarquement();
         }
     }
 }

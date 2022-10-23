@@ -28,5 +28,5 @@ public abstract class Compteur : MonoBehaviour
         etiquette.text = $"{nombre}";
     }
 
-    protected abstract void OnVehiculeCree(VoitureAutomatique voiture);
+    protected abstract void OnVehiculeCree(VehiculeAutomatique voiture);
 }

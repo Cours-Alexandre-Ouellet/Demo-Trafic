@@ -12,10 +12,11 @@ public class GenerateurVehicule : MonoBehaviour
     private int nombreVehiculesCrees;
     private int nombreAutobusCrees;
 
-    public List<VoitureAutomatique> Prototypes { get; private set; }
+    public List<VehiculeAutomatique> Prototypes { get; private set; }
 
     [Header("Chemin")]
-    public Chemin[] chemins;
+    public GameObject conteneurChemins;                 // Objet contenant tous les chemins possibles
+    private List<SegmentRoute> segmentsRouteInitiaux;   // Segments de route dont une des extrémités est disponible
 
     [Header("Paramètres génération")]
     public float chanceGeneration;                      // Probabilite de génération
@@ -23,22 +24,34 @@ public class GenerateurVehicule : MonoBehaviour
 
     private float tempsDepuisDerniereGeneration;        // Nombre de frames depuis la dernière génération
 
-    public delegate void EvenementCreation(VoitureAutomatique voiture);
-    public event Action<VoitureAutomatique> CreerVehicule;
+    public delegate void EvenementCreation(VehiculeAutomatique voiture);
+    public event Action<VehiculeAutomatique> CreerVehicule;
 
     private void Awake()
     {
         tempsDepuisDerniereGeneration = 0;
         nombreVehiculesCrees = 0;
         nombreAutobusCrees = 0;
-        Prototypes = new List<VoitureAutomatique>();
+        Prototypes = new List<VehiculeAutomatique>();
+        segmentsRouteInitiaux = new List<SegmentRoute>();
+    }
+
+    private void Start()
+    {
+        foreach (SegmentRoute segmentRoute in conteneurChemins.GetComponentsInChildren<SegmentRoute>())
+        {
+            if (!segmentRoute.ConnecteDeuxExtremites)
+            {
+                segmentsRouteInitiaux.Add(segmentRoute);
+            }
+        }
     }
 
     private void Update()
     {
-        if(tempsDepuisDerniereGeneration > tempsAttente)
+        if (tempsDepuisDerniereGeneration > tempsAttente)
         {
-            if(UnityEngine.Random.value < chanceGeneration)
+            if (UnityEngine.Random.value < chanceGeneration)
             {
                 GenererVehicule();
                 tempsDepuisDerniereGeneration = 0;
@@ -49,17 +62,18 @@ public class GenerateurVehicule : MonoBehaviour
 
     public void GenererVehicule()
     {
-        if(Prototypes.Count == 0)
+        if (Prototypes.Count == 0)
             return;
 
-        VoitureAutomatique protoypeChoisi = Prototypes[UnityEngine.Random.Range(0, Prototypes.Count)];
-        Chemin cheminChoisi = chemins[UnityEngine.Random.Range(0, chemins.Length)];
+        VehiculeAutomatique protoypeChoisi = Prototypes[UnityEngine.Random.Range(0, Prototypes.Count)];
+        ConstructeurChemin cnstrChemin = new ConstructeurChemin();
+        Path chemin = cnstrChemin.ConstruireChemin(segmentsRouteInitiaux[UnityEngine.Random.Range(0, segmentsRouteInitiaux.Count)]);
 
-        if(PeutGenerer(protoypeChoisi.GetComponent<MeshFilter>().sharedMesh.bounds.extents, cheminChoisi.Depart,
-            (cheminChoisi.Arrivee - cheminChoisi.Depart).normalized))
+        if (PeutGenerer(protoypeChoisi.GetComponent<MeshFilter>().sharedMesh.bounds.extents, chemin.Start,
+            (Vector3.one).normalized))
         {
-            VoitureAutomatique generee = Instantiate(protoypeChoisi, transform);
-            generee.AffecterChemin(cheminChoisi);
+            VehiculeAutomatique generee = Instantiate(protoypeChoisi, transform);
+            generee.AffecterChemin(chemin);
 
             CreerVehicule?.Invoke(generee);
         }

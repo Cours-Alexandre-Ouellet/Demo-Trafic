@@ -5,7 +5,7 @@ using TMPro;
 
 public class CompteurNbAutobus : Compteur
 {
-    protected override void OnVehiculeCree(VoitureAutomatique voiture)
+    protected override void OnVehiculeCree(VehiculeAutomatique voiture)
     {
         if(voiture.GetType() == typeof(Autobus))
         {

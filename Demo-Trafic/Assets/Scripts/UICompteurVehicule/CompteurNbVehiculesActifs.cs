@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CompteurNbVehiculesActifs : Compteur
 {
-    protected override void OnVehiculeCree(VoitureAutomatique voiture)
+    protected override void OnVehiculeCree(VehiculeAutomatique voiture)
     {
         nombre++;
         AfficherNombre(nombre);
@@ -12,7 +12,7 @@ public class CompteurNbVehiculesActifs : Compteur
         voiture.DestructionVehicule += OnVehiculeDetruit;
     }
 
-    void OnVehiculeDetruit(VoitureAutomatique voiture)
+    void OnVehiculeDetruit(VehiculeAutomatique voiture)
     {
         nombre--;
         AfficherNombre(nombre);
