@@ -29,6 +29,8 @@ public class GenerateurVehicule : MonoBehaviour
     public delegate void EvenementCreation(VehiculeAutomatique voiture);
     public event Action<VehiculeAutomatique> CreerVehicule;
 
+    private ModeleVehicule[] modeles;
+
     private void Awake()
     {
         if (Instance == null)
@@ -45,6 +47,7 @@ public class GenerateurVehicule : MonoBehaviour
         nombreAutobusCrees = 0;
         Prototypes = new List<VehiculeAutomatique>();
         segmentsRouteInitiaux = new List<SegmentRoute>();
+        modeles = Resources.LoadAll<ModeleVehicule>("DonneesVehicule");
     }
 
     private void Start()
@@ -84,6 +87,7 @@ public class GenerateurVehicule : MonoBehaviour
             (Vector3.one).normalized))
         {
             VehiculeAutomatique generee = Instantiate(protoypeChoisi, transform);
+            generee.Initialiser(modeles[UnityEngine.Random.Range(0, modeles.Length)]);
             generee.AffecterChemin(chemin);
 
             CreerVehicule?.Invoke(generee);

@@ -2,6 +2,7 @@ public class EtatAvancer : IState<VehiculeAutomatique>
 {
     public AbstractCommand<VehiculeAutomatique>[] OnStateEnter(VehiculeAutomatique vehicule)
     {
+        vehicule.TempsAttente = 0.0f;
         return new AbstractCommand<VehiculeAutomatique>[] { new CommandeChangerVitesse(vehicule.vitesseMaximale) };
     }
 

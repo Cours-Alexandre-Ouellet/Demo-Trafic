@@ -24,6 +24,7 @@ public class CommandeAvancer : AbstractCommand<VehiculeAutomatique>
 
             if (Physics.CheckBox(source, etendue, vehicule.transform.rotation, LayerMask.GetMask("Voiture")))
             {
+                vehicule.TempsAttente += Time.deltaTime;
                 return;     // Ne peut pas avancer
             }
         }

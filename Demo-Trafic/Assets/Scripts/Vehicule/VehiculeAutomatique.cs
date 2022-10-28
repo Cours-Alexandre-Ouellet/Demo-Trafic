@@ -8,6 +8,8 @@ public class VehiculeAutomatique : MonoBehaviour, IPointerClickHandler
 
     public float vitesseMaximale;
 
+    public bool ArretBus { get; private set; }
+
     private StateMachine<VehiculeAutomatique> iaVehicule;
 
     public bool PeutAvancer { get; set; }
@@ -18,9 +20,13 @@ public class VehiculeAutomatique : MonoBehaviour, IPointerClickHandler
 
     private Animator[] animateursRoue;
 
-    public virtual string NomType => "Voiture";
+    public virtual string NomType { get; private set; }
 
     public float TempsCreation { get; private set; }
+
+    public float TempsAttente { get; set; }
+
+    public float TempsImpatience { get; private set; }
 
     protected void Awake()
     {
@@ -30,6 +36,18 @@ public class VehiculeAutomatique : MonoBehaviour, IPointerClickHandler
         PeutAvancer = true;
         animateursRoue = GetComponentsInChildren<Animator>();
         TempsCreation = Time.time;
+        TempsImpatience = 3.0f;
+        TempsAttente = 0.0f;
+    }
+
+    public void Initialiser(ModeleVehicule modele)
+    {
+        Material[] mat = GetComponent<MeshRenderer>().materials;
+        mat[0] = modele.exterieurVoiture;
+        GetComponent<MeshRenderer>().materials = mat;  
+       
+        vitesseMaximale = modele.vitesseMaximale;
+        NomType = modele.nomVoiture;
     }
 
     protected void Start()
@@ -37,9 +55,24 @@ public class VehiculeAutomatique : MonoBehaviour, IPointerClickHandler
         iaVehicule.Start(new EtatAvancer());
     }
 
+    void Update()
+    {
+        if(TempsAttente > TempsImpatience)
+        {
+            Klaxonner();
+            TempsAttente = 0.0f;
+        }
+    }
+
+    private void Klaxonner()
+    {
+
+    }
+
+
     public void SetVitesse(float vitesse)
     {
-        foreach (Animator animateur in animateursRoue)
+        foreach(Animator animateur in animateursRoue)
         {
             animateur.SetFloat("Vitesse", vitesse / (Mathf.PI * rayonRoue));
         }
