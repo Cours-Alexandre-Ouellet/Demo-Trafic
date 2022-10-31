@@ -28,6 +28,9 @@ public class VehiculeAutomatique : MonoBehaviour, IPointerClickHandler
 
     public float TempsImpatience { get; private set; }
 
+    [SerializeField]
+    private AudioClip[] sonsKlaxon;
+
     protected void Awake()
     {
         iaVehicule = new StateMachine<VehiculeAutomatique>(this);
@@ -66,7 +69,10 @@ public class VehiculeAutomatique : MonoBehaviour, IPointerClickHandler
 
     private void Klaxonner()
     {
-
+        AudioSource source = GetComponent<AudioSource>();
+        source.clip = sonsKlaxon[Random.Range(0, sonsKlaxon.Length)];
+        source.Play();
+        source.loop = false;
     }
 
 
