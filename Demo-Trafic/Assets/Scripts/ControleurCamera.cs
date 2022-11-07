@@ -39,6 +39,14 @@ public class ControleurCamera : MonoBehaviour
         {
             transform.position += droitPlat * vitesse * Time.deltaTime;
         }
+        if(Input.GetKey(KeyCode.Z))
+        {
+            transform.position += Vector3.up * vitesse * Time.deltaTime;
+        }
+        if(Input.GetKey(KeyCode.X))
+        {
+            transform.position += Vector3.down * vitesse * Time.deltaTime;
+        }
     }
 
     private void GererRotation()
